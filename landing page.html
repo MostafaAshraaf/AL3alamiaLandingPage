@@ -1,0 +1,1344 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>العالمية | للأحبار والكمبيوتر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #0a1628;
+        --blue: #1b3f72;
+        --blue-mid: #1e5aa8;
+        --accent: #d4a017;
+        --accent-light: #f0c040;
+        --white: #ffffff;
+        --off-white: #f4f7fc;
+        --text-muted: #8a9bbc;
+        --card-bg: #111e33;
+        --border: rgba(255, 255, 255, 0.08);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Cairo", sans-serif;
+        background: var(--navy);
+        color: var(--white);
+        overflow-x: hidden;
+        direction: rtl;
+      }
+
+      /* ── HEADER ── */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 18px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(10, 22, 40, 0.85);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        transition: all 0.3s ease;
+      }
+
+      .logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .logo-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, var(--blue-mid), var(--accent));
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        font-weight: 900;
+        font-family: "Tajawal", sans-serif;
+        color: var(--white);
+        letter-spacing: -1px;
+        box-shadow: 0 4px 20px rgba(30, 90, 168, 0.5);
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo-name {
+        font-family: "Tajawal", sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--white);
+        letter-spacing: 2px;
+        line-height: 1;
+      }
+
+      .logo-sub {
+        font-size: 11px;
+        color: var(--accent);
+        letter-spacing: 1px;
+        font-weight: 400;
+        margin-top: 3px;
+      }
+
+      nav {
+        display: flex;
+        gap: 32px;
+      }
+
+      nav a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.2s;
+        position: relative;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s;
+      }
+
+      nav a:hover {
+        color: var(--white);
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 120px 5% 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 80% 60% at 70% 50%,
+            rgba(27, 63, 114, 0.45) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 50% 40% at 20% 80%,
+            rgba(212, 160, 23, 0.12) 0%,
+            transparent 60%
+          ),
+          var(--navy);
+        z-index: 0;
+      }
+
+      .hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+          );
+        background-size: 60px 60px;
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 700px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(212, 160, 23, 0.15);
+        border: 1px solid rgba(212, 160, 23, 0.3);
+        border-radius: 50px;
+        padding: 6px 16px;
+        font-size: 13px;
+        color: var(--accent-light);
+        margin-bottom: 28px;
+        animation: fadeUp 0.8s ease both;
+      }
+
+      .hero-badge span {
+        width: 6px;
+        height: 6px;
+        background: var(--accent);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.4);
+        }
+      }
+
+      .hero h1 {
+        font-family: "Tajawal", sans-serif;
+        font-size: clamp(42px, 7vw, 80px);
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 8px;
+        animation: fadeUp 0.8s ease 0.1s both;
+      }
+
+      .hero h1 span {
+        background: linear-gradient(90deg, var(--accent-light), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-tagline {
+        font-size: clamp(16px, 2.5vw, 22px);
+        color: rgba(255, 255, 255, 0.65);
+        font-weight: 400;
+        margin-bottom: 16px;
+        animation: fadeUp 0.8s ease 0.2s both;
+      }
+
+      .hero-sub {
+        font-size: 14px;
+        color: var(--text-muted);
+        margin-bottom: 48px;
+        line-height: 1.8;
+        max-width: 500px;
+        animation: fadeUp 0.8s ease 0.3s both;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        animation: fadeUp 0.8s ease 0.4s both;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--blue-mid), #1447a3);
+        color: var(--white);
+        padding: 14px 32px;
+        border-radius: 10px;
+        font-family: "Cairo", sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s;
+        box-shadow: 0 4px 20px rgba(30, 90, 168, 0.5);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(30, 90, 168, 0.7);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--white);
+        padding: 14px 32px;
+        border-radius: 10px;
+        font-family: "Cairo", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s;
+      }
+
+      .btn-outline:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      .btn-store {
+        background: linear-gradient(135deg, var(--accent), #b8860b);
+        color: var(--navy);
+        padding: 14px 32px;
+        border-radius: 10px;
+        font-family: "Cairo", sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s;
+        box-shadow: 0 4px 20px rgba(212, 160, 23, 0.45);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-store::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, var(--accent-light), var(--accent));
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .btn-store:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(212, 160, 23, 0.65);
+      }
+
+      .btn-store:hover::before {
+        opacity: 1;
+      }
+
+      .btn-store span {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .hero-stats {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        gap: 48px;
+        margin-top: 72px;
+        animation: fadeUp 0.8s ease 0.5s both;
+      }
+
+      .stat {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .stat-num {
+        font-family: "Tajawal", sans-serif;
+        font-size: 36px;
+        font-weight: 900;
+        color: var(--accent-light);
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-size: 13px;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── SECTIONS COMMON ── */
+      section {
+        padding: 100px 5%;
+      }
+
+      .section-label {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-label::before {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 2px;
+        background: var(--accent);
+      }
+
+      .section-title {
+        font-family: "Tajawal", sans-serif;
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 800;
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+
+      .section-desc {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 16px;
+        line-height: 1.9;
+        max-width: 600px;
+      }
+
+      /* ── ABOUT ── */
+      .about {
+        background: var(--card-bg);
+      }
+
+      .about-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .about-visual {
+        position: relative;
+      }
+
+      .about-card {
+        background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+        border: 1px solid rgba(30, 90, 168, 0.4);
+        border-radius: 20px;
+        padding: 48px 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-card::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        left: -60px;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(
+          circle,
+          rgba(212, 160, 23, 0.15) 0%,
+          transparent 70%
+        );
+      }
+
+      .about-card blockquote {
+        font-size: 18px;
+        line-height: 2;
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 300;
+        position: relative;
+        z-index: 1;
+      }
+
+      .about-card blockquote strong {
+        color: var(--accent-light);
+        font-weight: 700;
+      }
+
+      .quote-mark {
+        font-size: 80px;
+        line-height: 0.5;
+        color: var(--accent);
+        font-family: serif;
+        display: block;
+        margin-bottom: 16px;
+        opacity: 0.7;
+      }
+
+      .founder-tag {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .founder-avatar {
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, var(--accent), var(--blue-mid));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+      }
+
+      .founder-info {
+        display: flex;
+        flex-direction: column;
+      }
+      .founder-name {
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .founder-role {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      .clients-list {
+        margin-top: 40px;
+      }
+
+      .clients-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-muted);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .client-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.75);
+        transition: color 0.2s;
+      }
+
+      .client-item:hover {
+        color: var(--white);
+      }
+
+      .client-item::before {
+        content: "✓";
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 13px;
+      }
+
+      .legal-badges {
+        display: flex;
+        gap: 16px;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+
+      .badge {
+        background: rgba(30, 90, 168, 0.2);
+        border: 1px solid rgba(30, 90, 168, 0.4);
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.7);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .badge span {
+        color: var(--accent);
+        font-size: 16px;
+      }
+
+      /* ── SERVICES ── */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+        margin-top: 60px;
+      }
+
+      .service-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 36px 32px;
+        transition: all 0.35s ease;
+        position: relative;
+        overflow: hidden;
+        cursor: default;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(30, 90, 168, 0.1) 0%,
+          transparent 100%
+        );
+        opacity: 0;
+        transition: opacity 0.35s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(30, 90, 168, 0.5);
+        box-shadow: 0 20px 60px rgba(10, 22, 40, 0.6);
+      }
+
+      .service-card:hover::before {
+        opacity: 1;
+      }
+
+      .service-icon {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(
+          135deg,
+          rgba(30, 90, 168, 0.3),
+          rgba(212, 160, 23, 0.15)
+        );
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        margin-bottom: 24px;
+        transition: transform 0.35s;
+      }
+
+      .service-card:hover .service-icon {
+        transform: scale(1.1) rotate(-5deg);
+      }
+
+      .service-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        font-family: "Tajawal", sans-serif;
+      }
+
+      .service-card p {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.8;
+      }
+
+      .service-num {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.12);
+        font-family: "Tajawal", sans-serif;
+        font-weight: 900;
+        letter-spacing: 1px;
+      }
+
+      /* ── CATALOG ── */
+      .catalog {
+        background: var(--card-bg);
+        text-align: center;
+      }
+
+      .catalog-inner {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .qr-wrapper {
+        margin: 50px auto 32px;
+        width: 180px;
+        height: 180px;
+        border: 2px dashed rgba(212, 160, 23, 0.4);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        color: var(--text-muted);
+        font-size: 13px;
+        position: relative;
+        background: rgba(10, 22, 40, 0.6);
+        transition: border-color 0.3s;
+      }
+      .qr-image {
+        width: 110px;
+        height: 110px;
+        object-fit: contain;
+      }
+      .qr-wrapper:hover {
+        border-color: var(--accent);
+      }
+
+      .qr-icon {
+        font-size: 52px;
+        opacity: 0.5;
+      }
+
+      .qr-corners {
+        position: absolute;
+        inset: -1px;
+        border-radius: 20px;
+      }
+
+      .qr-corners::before,
+      .qr-corners::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-color: var(--accent);
+        border-style: solid;
+      }
+
+      .qr-corners::before {
+        top: 8px;
+        right: 8px;
+        border-width: 2px 2px 0 0;
+        border-radius: 0 4px 0 0;
+      }
+
+      .qr-corners::after {
+        bottom: 8px;
+        left: 8px;
+        border-width: 0 0 2px 2px;
+        border-radius: 0 0 0 4px;
+      }
+
+      .catalog-text {
+        font-size: 15px;
+        color: var(--text-muted);
+        margin-bottom: 36px;
+        line-height: 1.8;
+      }
+
+      .catalog-text strong {
+        color: var(--accent-light);
+      }
+
+      /* ── CONTACT ── */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        margin-top: 60px;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 24px;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        transition: all 0.3s;
+      }
+
+      .contact-item:hover {
+        border-color: rgba(30, 90, 168, 0.5);
+        transform: translateX(-6px);
+      }
+
+      .contact-icon {
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(
+          135deg,
+          rgba(30, 90, 168, 0.4),
+          rgba(212, 160, 23, 0.15)
+        );
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+
+      .contact-detail {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact-label {
+        font-size: 11px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 4px;
+      }
+
+      .contact-value {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--white);
+        direction: ltr;
+        text-align: right;
+      }
+
+      .contact-value a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .contact-value a:hover {
+        color: var(--accent-light);
+      }
+
+      .map-placeholder {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      .map-placeholder .map-icon {
+        font-size: 56px;
+        opacity: 0.4;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #060e1a;
+        padding: 48px 5%;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .footer-copy {
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+
+      .footer-copy span {
+        color: var(--accent);
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 24px;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 13px;
+        transition: color 0.2s;
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 12px;
+      }
+
+      .social-btn {
+        width: 38px;
+        height: 38px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        font-size: 16px;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .social-btn:hover {
+        background: rgba(30, 90, 168, 0.3);
+        border-color: var(--blue-mid);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        nav {
+          display: none;
+        }
+        .about-inner,
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .hero-stats {
+          gap: 32px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero h1 {
+          font-size: 36px;
+        }
+        .hero-stats {
+          flex-wrap: wrap;
+          gap: 24px;
+        }
+        footer {
+          flex-direction: column;
+          text-align: center;
+        }
+        .legal-badges {
+          justify-content: center;
+        }
+      }
+
+      /* ── SCROLL REVEAL ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="logo-wrap">
+        <div class="logo-icon">AL</div>
+        <div class="logo-text">
+          <span class="logo-name">AL3ALAMIA</span>
+          <span class="logo-sub">العالمية للأحبار والكمبيوتر</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">من نحن</a>
+        <a href="#services">خدماتنا</a>
+        <a href="#catalog">الكتالوج</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-grid"></div>
+      <div>
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span></span>
+            منذ عام ٢٠١٠
+          </div>
+          <h1>شركة <span>العالمية</span><br />للأحبار والكمبيوتر</h1>
+          <p class="hero-tagline">
+            متخصصون في الطابعات والأحبار وإكسسوارات الكمبيوتر
+          </p>
+          <p class="hero-sub">
+            نقدم حلول أحبار متكاملة تشمل بيع وصيانة الطابعات، والأحبار
+            والمتوافقة، وجميع ملحقات الكمبيوتر — بجودة موثوقة وخدمة احترافية.
+          </p>
+          <div class="hero-btns">
+            <a href="#services" class="btn-primary">🖨 استكشف خدماتنا</a>
+            <a
+              href="https://al-3alamia-front-end.vercel.app"
+              target="_blank"
+              class="btn-store"
+              ><span>🛒 زيارة متجرنا</span></a
+            >
+            <a href="#contact" class="btn-outline">📞 تواصل معنا</a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">+15</span>
+            <span class="stat-label">سنة خبرة</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">+500</span>
+            <span class="stat-label">عميل راضٍ</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">4</span>
+            <span class="stat-label">خدمات متخصصة</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="about-inner">
+        <div class="about-visual reveal">
+          <div class="about-card">
+            <blockquote>
+              <span class="quote-mark">"</span>
+              شركة العالمية لاستيراد وتوريد أحبار الطابعات وإكسسوارات الكمبيوتر.
+              تأسست الشركة عام <strong>2010</strong> على يد
+              <strong>المهندس خالد فتحي مرزوق</strong>، ومنذ ذلك الحين نلتزم
+              بتقديم أعلى معايير الجودة والموثوقية، مما مكّننا من كسب ثقة
+              عملائنا في مختلف أنحاء جمهورية مصر العربية.
+            </blockquote>
+            <div class="founder-tag">
+              <div class="founder-avatar">👔</div>
+              <div class="founder-info">
+                <span class="founder-name">م. خالد فتحي مرزوق</span>
+                <span class="founder-role">المؤسس والمدير التنفيذي</span>
+              </div>
+            </div>
+          </div>
+          <div class="legal-badges" style="margin-top: 20px">
+            <div class="badge"><span>🏛</span> سجل تجاري رسمي</div>
+            <div class="badge"><span>📋</span> بطاقة ضريبية</div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s">
+          <div class="section-label">من نحن</div>
+          <h2 class="section-title">شركاء نجاحك في عالم الأحبار</h2>
+          <p class="section-desc" style="margin-bottom: 36px">
+            نقدم حلول أحبار متكاملة تشمل بيع وصيانة الطابعات بجميع أنواعها،
+            وتوفير الأحبار والمتوافقة، وكامل ملحقات الكمبيوتر — بأسعار تنافسية
+            وخدمة تقنية احترافية.
+          </p>
+          <div class="clients-list">
+            <p class="clients-title">أبرز عملائنا</p>
+            <div class="client-item">شركة مياه الجيزة</div>
+            <div class="client-item">جامعة القاهرة</div>
+            <div class="client-item">نادي النيل الرياضي</div>
+            <div class="client-item">وزارة الشباب والرياضة</div>
+            <div class="client-item">الهيئة العامة لتعليم الكبار</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="reveal">
+        <div class="section-label">ما نقدمه</div>
+        <h2 class="section-title">خدماتنا المتخصصة</h2>
+        <p class="section-desc">
+          نوفر لك كل ما تحتاجه في مجال الأحبار وتكنولوجيا المعلومات تحت سقف
+          واحد.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <span class="service-num">01</span>
+          <div class="service-icon">🖨</div>
+          <h3>بيع وصيانة الطابعات</h3>
+          <p>
+            نوفر طابعات بجميع أنواعها ومواصفاتها، مع خدمات صيانة دورية وإصلاح
+            سريع باحترافية عالية.
+          </p>
+        </div>
+        <div class="service-card reveal" style="transition-delay: 0.1s">
+          <span class="service-num">02</span>
+          <div class="service-icon">🖋</div>
+          <h3>توريد الأحبار والتونر</h3>
+          <p>
+            أحبار متوافقة لجميع ماركات الطابعات، بجودة مضمونة وأسعار تنافسية.
+          </p>
+        </div>
+        <div class="service-card reveal" style="transition-delay: 0.2s">
+          <span class="service-num">03</span>
+          <div class="service-icon">💻</div>
+          <h3>إكسسوارات الكمبيوتر</h3>
+          <p>
+            مجموعة متنوعة من ملحقات الكمبيوتر والأجهزة الطرفية المتوافقة مع جميع
+            الأنظمة.
+          </p>
+        </div>
+        <div class="service-card reveal" style="transition-delay: 0.3s">
+          <span class="service-num">04</span>
+          <div class="service-icon">🔧</div>
+          <h3>الدعم الفني</h3>
+          <p>
+            فريق فني متخصص يقدم الدعم والاستشارات التقنية وحل المشكلات بكفاءة
+            عالية.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section class="catalog" id="catalog">
+      <div class="catalog-inner reveal">
+        <div class="section-label" style="justify-content: center">
+          كتالوجنا
+        </div>
+        <h2 class="section-title">تصفح منتجاتنا</h2>
+        <p class="catalog-text">
+          اطلع على كامل منتجاتنا وعروضنا الحصرية من خلال الكتالوج الرقمي —
+          <strong>كل ما تحتاجه في مكان واحد</strong>.
+        </p>
+        <div class="qr-wrapper">
+          <div class="qr-corners"></div>
+
+          <img src="AL3ALAMIA Catalog.png" alt="QR Code" class="qr-image" />
+
+          <span>QR Code</span>
+        </div>
+        <p class="catalog-text">امسح رمز QR لفتح الكتالوج فوراً من هاتفك</p>
+        <a
+          href="http://bit.ly/4co57Wa"
+          target="_blank"
+          class="btn-primary"
+          style="margin: 0 auto; display: inline-flex"
+        >
+          📄 عرض الكتالوج الكامل
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="reveal">
+        <div class="section-label">تواصل معنا</div>
+        <h2 class="section-title">نحن هنا لخدمتك</h2>
+        <p class="section-desc">
+          تواصل معنا الآن وسيسعدنا الرد على جميع استفساراتك.
+        </p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-detail">
+              <span class="contact-label">العنوان</span>
+              <span class="contact-value"
+                >شركة العالمية -مول سنفنكس -شارع جامعة الدول -المهندسين
+                بالجيزة</span
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-detail">
+              <span class="contact-label">الهاتف</span>
+              <div class="contact-value">
+                <a href="tel:01121301515">01121301515</a>
+                <span style="color: var(--text-muted); margin: 0 8px">|</span>
+                <a href="tel:01114939714">01114939714</a>
+                <span style="color: var(--text-muted); margin: 0 8px">|</span>
+                <a href="tel:01140030112">01140030112</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="contact-detail">
+              <span class="contact-label">واتساب</span>
+              <div class="contact-value">
+                <a href="https://wa.me/201114939714" target="_blank"
+                  >01114939714</a
+                >
+                <span style="color: var(--text-muted); margin: 0 8px">|</span>
+                <a href="https://wa.me/201140030112" target="_blank"
+                  >01140030112</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-detail">
+              <span class="contact-label">البريد الإلكتروني</span>
+              <div class="contact-value">
+                <a
+                  href="/cdn-cgi/l/email-protection#1d7c712e7c717c70747c336d7e6e69687b7b5d7a707c7471337e7270"
+                  ><span
+                    class="__cf_email__"
+                    data-cfemail="6809045b09040905010946180b1b1c1d0e0e280f05090104460b0705"
+                    >[email&#160;protected]</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-facebook-f"></i></div>
+            <div class="contact-detail">
+              <span class="contact-label">فيسبوك</span>
+              <div class="contact-value">
+                <a href="https://facebook.com/AL3ALAMIA.Store" target="_blank"
+                  >AL3ALAMIA.Store</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s">
+          <a
+            href="https://maps.app.goo.gl/SrPtBREizyr2TnP6A"
+            target="_blank"
+            class="map-placeholder"
+            style="text-decoration: none"
+          >
+            <span class="map-icon">🗺</span>
+            <span>عرض الموقع على الخريطة</span>
+            <small style="color: var(--text-muted); font-size: 12px">
+              اضغط لفتح Google Maps
+            </small>
+          </a>
+
+          <div
+            style="
+              margin-top: 28px;
+              display: flex;
+              gap: 16px;
+              justify-content: center;
+            "
+          >
+            <a
+              href="https://wa.me/201121301515"
+              target="_blank"
+              class="btn-primary"
+              style="flex: 1; justify-content: center"
+            >
+              <i class="fab fa-whatsapp"></i> واتساب
+            </a>
+
+            <a
+              href="tel:01121301515"
+              class="btn-outline"
+              style="flex: 1; justify-content: center"
+            >
+              📞 اتصل بنا
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="logo-wrap">
+        <div
+          class="logo-icon"
+          style="width: 38px; height: 38px; font-size: 16px"
+        >
+          AL
+        </div>
+        <div class="logo-text">
+          <span class="logo-name" style="font-size: 16px">AL3ALAMIA</span>
+          <span class="logo-sub">العالمية للأحبار والكمبيوتر</span>
+        </div>
+      </div>
+      <p class="footer-copy">
+        © 2024 <span>العالمية</span> — جميع الحقوق محفوظة
+      </p>
+      <div class="social-links">
+        <a
+          href="https://facebook.com/AL3ALAMIA.Store"
+          target="_blank"
+          class="social-btn"
+        >
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://wa.me/201121301515" target="_blank" class="social-btn">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <a
+          href="/cdn-cgi/l/email-protection#52333e61333e333f3b337c2231212627343412353f333b3e7c313d3f"
+          class="social-btn"
+        >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Header shrink on scroll
+      window.addEventListener("scroll", () => {
+        const h = document.querySelector("header");
+        if (window.scrollY > 60) {
+          h.style.padding = "12px 5%";
+          h.style.background = "rgba(10,22,40,0.97)";
+        } else {
+          h.style.padding = "18px 5%";
+          h.style.background = "rgba(10,22,40,0.85)";
+        }
+      });
+    </script>
+  </body>
+</html>
