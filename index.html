@@ -15,16 +15,16 @@
     />
     <style>
       :root {
-        --navy: #0a1628;
-        --blue: #1b3f72;
-        --blue-mid: #1e5aa8;
-        --accent: #d4a017;
-        --accent-light: #f0c040;
+        --navy: #0e0e0e;
+        --blue: #1a1a1a;
+        --blue-mid: #C9A84C;
+        --accent: #C9A84C;
+        --accent-light: #E8C96B;
         --white: #ffffff;
-        --off-white: #f4f7fc;
-        --text-muted: #8a9bbc;
-        --card-bg: #111e33;
-        --border: rgba(255, 255, 255, 0.08);
+        --off-white: #f4f0e8;
+        --text-muted: #8a8070;
+        --card-bg: #141414;
+        --border: rgba(201, 168, 76, 0.12);
       }
 
       * {
@@ -56,7 +56,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: rgba(10, 22, 40, 0.85);
+        background: rgba(8, 8, 8, 0.85);
         backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--border);
         transition: all 0.3s ease;
@@ -71,7 +71,7 @@
       .logo-icon {
         width: 48px;
         height: 48px;
-        background: linear-gradient(135deg, var(--blue-mid), var(--accent));
+        background: linear-gradient(135deg, #C9A84C, #E8C96B);
         border-radius: 12px;
         display: flex;
         align-items: center;
@@ -79,9 +79,9 @@
         font-size: 22px;
         font-weight: 900;
         font-family: "Tajawal", sans-serif;
-        color: var(--white);
+        color: #0e0e0e;
         letter-spacing: -1px;
-        box-shadow: 0 4px 20px rgba(30, 90, 168, 0.5);
+        box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
       }
 
       .logo-text {
@@ -154,12 +154,12 @@
         background:
           radial-gradient(
             ellipse 80% 60% at 70% 50%,
-            rgba(27, 63, 114, 0.45) 0%,
+            rgba(201, 168, 76, 0.08) 0%,
             transparent 70%
           ),
           radial-gradient(
             ellipse 50% 40% at 20% 80%,
-            rgba(212, 160, 23, 0.12) 0%,
+            rgba(232, 201, 107, 0.05) 0%,
             transparent 60%
           ),
           var(--navy);
@@ -260,8 +260,8 @@
       }
 
       .btn-primary {
-        background: linear-gradient(135deg, var(--blue-mid), #1447a3);
-        color: var(--white);
+        background: linear-gradient(135deg, #C9A84C, #a8832a);
+        color: #0e0e0e;
         padding: 14px 32px;
         border-radius: 10px;
         font-family: "Cairo", sans-serif;
@@ -274,12 +274,12 @@
         align-items: center;
         gap: 8px;
         transition: all 0.3s;
-        box-shadow: 0 4px 20px rgba(30, 90, 168, 0.5);
+        box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
       }
 
       .btn-primary:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 32px rgba(30, 90, 168, 0.7);
+        box-shadow: 0 8px 32px rgba(201, 168, 76, 0.55);
       }
 
       .btn-outline {
@@ -306,8 +306,9 @@
       }
 
       .btn-store {
-        background: linear-gradient(135deg, var(--accent), #b8860b);
-        color: var(--navy);
+        background: linear-gradient(135deg, #1a1a1a, #0e0e0e);
+        color: #C9A84C;
+        border: 1px solid rgba(201, 168, 76, 0.4);
         padding: 14px 32px;
         border-radius: 10px;
         font-family: "Cairo", sans-serif;
@@ -320,7 +321,7 @@
         align-items: center;
         gap: 8px;
         transition: all 0.3s;
-        box-shadow: 0 4px 20px rgba(212, 160, 23, 0.45);
+        box-shadow: 0 4px 20px rgba(201, 168, 76, 0.2);
         position: relative;
         overflow: hidden;
       }
@@ -329,14 +330,14 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, var(--accent-light), var(--accent));
+        background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(232,201,107,0.08));
         opacity: 0;
         transition: opacity 0.3s;
       }
 
       .btn-store:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 32px rgba(212, 160, 23, 0.65);
+        box-shadow: 0 8px 32px rgba(201, 168, 76, 0.35);
       }
 
       .btn-store:hover::before {
@@ -447,8 +448,8 @@
       }
 
       .about-card {
-        background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
-        border: 1px solid rgba(30, 90, 168, 0.4);
+        background: linear-gradient(135deg, #1a1a1a 0%, #0e0e0e 100%);
+        border: 1px solid rgba(201, 168, 76, 0.2);
         border-radius: 20px;
         padding: 48px 40px;
         position: relative;
@@ -505,7 +506,7 @@
       .founder-avatar {
         width: 44px;
         height: 44px;
-        background: linear-gradient(135deg, var(--accent), var(--blue-mid));
+        background: linear-gradient(135deg, #C9A84C, #a8832a);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -569,8 +570,8 @@
       }
 
       .badge {
-        background: rgba(30, 90, 168, 0.2);
-        border: 1px solid rgba(30, 90, 168, 0.4);
+        background: rgba(201, 168, 76, 0.1);
+        border: 1px solid rgba(201, 168, 76, 0.25);
         border-radius: 8px;
         padding: 8px 16px;
         font-size: 12px;
@@ -610,7 +611,7 @@
         inset: 0;
         background: linear-gradient(
           135deg,
-          rgba(30, 90, 168, 0.1) 0%,
+          rgba(201, 168, 76, 0.07) 0%,
           transparent 100%
         );
         opacity: 0;
@@ -619,8 +620,8 @@
 
       .service-card:hover {
         transform: translateY(-8px);
-        border-color: rgba(30, 90, 168, 0.5);
-        box-shadow: 0 20px 60px rgba(10, 22, 40, 0.6);
+        border-color: rgba(201, 168, 76, 0.4);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
       }
 
       .service-card:hover::before {
@@ -632,8 +633,8 @@
         height: 56px;
         background: linear-gradient(
           135deg,
-          rgba(30, 90, 168, 0.3),
-          rgba(212, 160, 23, 0.15)
+          rgba(201, 168, 76, 0.15),
+          rgba(232, 201, 107, 0.08)
         );
         border-radius: 14px;
         display: flex;
@@ -697,12 +698,12 @@
         color: var(--text-muted);
         font-size: 13px;
         position: relative;
-        background: rgba(10, 22, 40, 0.6);
+        background: rgba(20, 20, 20, 0.8);
         transition: border-color 0.3s;
       }
       .qr-image {
-        width: 110px;
-        height: 110px;
+        width: 150px;
+        height: 150px;
         object-fit: contain;
       }
       .qr-wrapper:hover {
@@ -782,7 +783,7 @@
       }
 
       .contact-item:hover {
-        border-color: rgba(30, 90, 168, 0.5);
+        border-color: rgba(201, 168, 76, 0.4);
         transform: translateX(-6px);
       }
 
@@ -791,8 +792,8 @@
         height: 44px;
         background: linear-gradient(
           135deg,
-          rgba(30, 90, 168, 0.4),
-          rgba(212, 160, 23, 0.15)
+          rgba(201, 168, 76, 0.2),
+          rgba(201, 168, 76, 0.08)
         );
         border-radius: 10px;
         display: flex;
@@ -854,7 +855,7 @@
 
       /* ── FOOTER ── */
       footer {
-        background: #060e1a;
+        background: #080808;
         padding: 48px 5%;
         border-top: 1px solid var(--border);
         display: flex;
@@ -910,9 +911,9 @@
       }
 
       .social-btn:hover {
-        background: rgba(30, 90, 168, 0.3);
-        border-color: var(--blue-mid);
-        color: var(--white);
+        background: rgba(201, 168, 76, 0.15);
+        border-color: rgba(201, 168, 76, 0.5);
+        color: var(--accent-light);
         transform: translateY(-2px);
       }
 
@@ -1136,9 +1137,9 @@
         <div class="qr-wrapper">
           <div class="qr-corners"></div>
 
-          <img src="AL3ALAMIA Catalog.png" alt="QR Code" class="qr-image" />
+          <img src="AL3ALAMIA_Catalog.png" alt="QR Code" class="qr-image" />
 
-          <span>QR Code</span>
+          <!-- <span>QR Code</span> -->
         </div>
         <p class="catalog-text">امسح رمز QR لفتح الكتالوج فوراً من هاتفك</p>
         <a
@@ -1333,10 +1334,10 @@
         const h = document.querySelector("header");
         if (window.scrollY > 60) {
           h.style.padding = "12px 5%";
-          h.style.background = "rgba(10,22,40,0.97)";
+          h.style.background = "rgba(8,8,8,0.97)";
         } else {
           h.style.padding = "18px 5%";
-          h.style.background = "rgba(10,22,40,0.85)";
+          h.style.background = "rgba(8,8,8,0.85)";
         }
       });
     </script>
